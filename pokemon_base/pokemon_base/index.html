@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeProject</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="pokemon.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="input-group">
+            <input type="text" name="pokemon-name">
+            <button class="search">Search</button>
+            <label class="error hidden" for="pokemon-name">Aucun pokemon pour cette recherche</label>
+        </div>
+        <div class="poke-list"></div>
+    </div>
+
+    <div class="poke-card hidden">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" class="sprite"></img>
+        <div class="infos">
+            <h2 class="name">Dracofeu</h2>
+            <div class="weight">375kg</div>
+        </div>
+        <div class="types">
+            <span class="type">Feu</span>
+            <span class="type">Dragon</span>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

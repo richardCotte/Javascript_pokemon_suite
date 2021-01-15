@@ -1,0 +1,37 @@
+.poke-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 96px auto;
+  border: 1px solid gray;
+  border-radius: 8px;
+  max-width: 400px;
+  margin-bottom: 8px;
+}
+
+.poke-card * {
+  margin: 0;
+  padding: 0;
+}
+
+.infos {
+  padding: 16px;
+}
+
+.name {
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.types {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.type {
+  background: orange;
+  color: white;
+  border-radius: 16px;
+  padding: 2px 8px;
+  margin-left: 8px;
+}
