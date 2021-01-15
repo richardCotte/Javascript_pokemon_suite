@@ -58,12 +58,17 @@ function createPokemonNode(pokemon) {
     const weight = card.querySelector('.weight');
     const img = card.querySelector('img');
     const types = card.querySelector('.types');
-
+    const deleteButton = card.querySelector('button.delete');
+    deleteButton.addEventListener('click', function () {
+        pokemons = deletePokemon(pokemons, pokemon.id);
+        displayPokemons(pokemons);
+    });
+    
     // Insertion des donnees dans le clone
     name.textContent = pokemon.name;
     weight.textContent = `${pokemon.weight}Kg`;
     img.src = pokemon.sprites.front_default;
-
+    
     // Suppression des anciens types
     while (types.firstChild) {
         types.firstChild.remove();
@@ -82,7 +87,7 @@ function createPokemonNode(pokemon) {
 }
 
 // Liste des pokemon requete
-const pokemons = [];
+let pokemons = [];
 
 /**
  * Essaie de trouver un pokemon correspondant a la recherche
@@ -90,7 +95,7 @@ const pokemons = [];
  */
 async function searchAndDisplayPokemon() {
     const pokemon = await tryFetchPokemon(input.value);
-
+    
     // Une erreur, on quitte la fonction après avoir afficher une erreur.
     if (!pokemon) {
         showError();
@@ -101,9 +106,15 @@ async function searchAndDisplayPokemon() {
         console.log(pokemon);
         clearError();
     }
-
+    
     // Enfin on affiche la liste
     displayPokemons(pokemons);
+    console.log(pokemons);
 }
+
+function deletePokemon (pokemon_list, pokemon_id) {
+    return pokemon_list
+    .filter(pokemon_list => pokemon_list.id !== pokemon_id);
+};
 
 searchButton.addEventListener('click', searchAndDisplayPokemon);
